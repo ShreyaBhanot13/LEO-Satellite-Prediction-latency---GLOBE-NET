@@ -1,0 +1,32 @@
+
+================================================================================
+PHASE 6 FINAL: LAG/INTERACTION FEATURES EXPERIMENT
+================================================================================
+
+OBJECTIVE:
+Push model performance beyond 81.40% using additional interaction features.
+
+METHODOLOGY:
+- Used SAME random split as V5 (directly comparable)
+- Added 10 new interaction features
+- Same CatBoost hyperparameters as V5
+
+NEW FEATURES ADDED:
+['ping_quality_ratio', 'volatility_per_range', 'hour_stability', 'day_month_pattern', 'download_upload_ratio', 'speed_variability', 'ping_download_interaction', 'temp_ping_interaction', 'business_ping', 'ping_best_cubed']
+
+RESULTS:
+--------------------------------------------------------------------------------
+CatBoost V5 Baseline: R² = 0.8140 (32 features)
+CatBoost V6 Enhanced: R² = 0.8152 (42 features)
+Improvement: +0.13%
+
+CONCLUSION:
+V6 achieved improvement!
+
+BEST MODEL: CatBoost_V6 with R² = 0.8152
+Location: outputs_v6_final/phase6_best_model.pkl
+
+MODEL SAFETY:
+All previous models backed up to: model_backups/pre_phase6_final/
+Original V5 model preserved at: outputs_v5/phase5_best_model.pkl
+================================================================================

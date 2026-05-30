@@ -1,0 +1,46 @@
+PHASE 6 REPORT: KARNATAKA CASE-STUDY ANALYSIS
+================================================================================
+
+1. KARNATAKA POSITION WITHIN INDIA
+- Karnataka sample count in anomaly evaluation: 3,990
+- Dual-signal anomaly rate: 0.0281
+- Critical anomaly rate: 0.0058
+- Mean residual: 5.7647 ms
+- Mean classifier high-risk rate: 0.3173
+- Dual-signal rank among states: 17 / 36
+- Critical rank among states: 19 / 36
+- Residual-mean rank among states: 17 / 36
+
+2. COMPARISON AGAINST INDIA AVERAGES
+- India mean dual-signal anomaly rate: 0.0411
+- India median dual-signal anomaly rate: 0.0250
+- India mean critical anomaly rate: 0.0097
+- India mean residual: 7.3272 ms
+- India mean classifier high-risk rate: 0.3149
+- Karnataka vs India dual-signal difference: -0.0130
+- Karnataka vs India residual difference: -1.5624 ms
+
+3. KARNATAKA ANOMALY MIX
+- Critical anomalies: 23
+- High anomalies: 89
+- Medium anomalies: 68
+- Watchlist cases: 1154
+- Dual-signal anomalies: 112
+- Residual underperformance cases: 180
+- Severe residual cases: 38
+- Predicted high-latency cases: 1266
+- Actual high-latency cases: 428
+- Mean actual latency: 41.1341 ms
+- Mean predicted latency: 35.3694 ms
+- Mean residual: 5.7647 ms
+- Median residual: -1.6215 ms
+- Mean high-latency probability: 0.3785
+
+4. TRAI OPERATOR CONTEXT
+- Available operator: AIRTEL with median speed 7409.00 kbps, mean speed 16076.29 kbps, median signal -99.00
+- Limitation: the current Karnataka TRAI file contains only one operator, so no valid best-vs-worst operator comparison can be made yet.
+
+5. INTERPRETATION
+- Karnataka is not among the most anomalous states in India, but it still shows measurable unexpected degradation relative to model expectations.
+- The anomaly signal suggests Karnataka performs worse than predicted often enough to justify a focused case-study, but not so badly that it belongs to the highest-risk state cluster.
+- The current TRAI extract can only provide single-operator context, so Karnataka operator benchmarking remains incomplete until a multi-operator Karnataka TRAI file is available.

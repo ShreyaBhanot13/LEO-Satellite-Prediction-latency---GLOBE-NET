@@ -1,0 +1,267 @@
+================================================================================
+                    FINAL PROJECT SUMMARY - REPOSITORY WIDE
+    Explainable ML Framework for Global Internet and LEO Network Performance
+================================================================================
+
+PROJECT STATUS: COMPLETE
+
+This repository now contains two distinct but related analysis tracks:
+
+1. Legacy Europe-schema optimization track
+   - Purpose: model optimization on the original Europe-compatible dataset
+   - Final result: CatBoost V5, R² = 0.8140
+   - Role in final project: benchmark pipeline and reference implementation
+
+2. India-first analysis track
+   - Purpose: make India the primary modeling and anomaly-analysis domain
+   - Data basis: original Ookla India state-labelled data plus Karnataka TRAI context
+   - Role in final project: main reporting workflow for the final FYP narrative
+
+The final repository position should treat the India-first workflow as the main
+project outcome and the Europe V5 workflow as a benchmark and methodology anchor.
+
+================================================================================
+TOP-LEVEL CONCLUSION
+================================================================================
+
+The strongest final contribution of this repository is not exact latency
+regression alone. On the India-native workflow, direct latency regression was
+weak, but explainability, high-latency screening, and dual-signal anomaly
+detection produced useful and defensible findings at state level.
+
+In the final report, the project should therefore be framed as an explainable
+ML system for network-performance understanding and anomaly identification,
+rather than as a high-precision latency predictor for India.
+
+================================================================================
+TRACK A - EUROPE OPTIMIZATION BENCHMARK
+================================================================================
+
+Primary files:
+  outputs_v5/phase5_best_model.pkl
+  outputs_v5/phase5_results.csv
+  outputs_v5/v5_engineering_summary.txt
+  PHASE5_FINAL_MODEL_REPORT.txt
+
+Best benchmark model:
+  Algorithm: CatBoost with Phase 5 engineered features
+  R² Score: 0.8140
+  RMSE: 0.4235 ms
+  MAE: 0.3033 ms
+  Features: 32
+
+Optimization progression:
+  V1 baseline         -> R² = 0.7967
+  V2 feature changes  -> R² = 0.7982
+  V3 log target       -> R² = 0.8032
+  V4 ultra tuning     -> R² = 0.8093
+  V5 final CatBoost   -> R² = 0.8140
+
+Why this track still matters:
+  - It proves the repository contains a fully optimized latency-prediction pipeline
+  - It provides a stable benchmark reference for SHAP and anomaly methodology
+  - It remains useful as a benchmark, but not as the main India model
+
+Important limitation:
+  The Europe V5 model is trained on a different schema and must not be used as a
+  direct India predictor.
+
+================================================================================
+TRACK B - INDIA-FIRST MAIN WORKFLOW
+================================================================================
+
+Workspace:
+  09_INDIA_FIRST_ANALYSIS/
+
+Primary datasets:
+  outputs_v5/ookla_data_with_states.csv
+  outputs_v5/ade6e644-91b8-4d27-97ba-e8c42c48f278_4bc4eb37ff16e2b91e3412bf093ee6e5 (1).csv
+
+India data profile:
+  Total Ookla rows: 562,527
+  States/UTs covered: 36
+  Karnataka Ookla rows: 20,325
+  Karnataka TRAI rows: 1,767
+  India mean latency: 39.09 ms
+  Karnataka mean latency: 40.81 ms
+
+Final India feature set:
+  Rows: 562,527
+  Columns: 80 total
+  Features: 79
+  Missing values: 0
+
+Feature groups:
+  - Geography: tile_x, tile_y, polynomial terms, tile interactions
+  - Throughput: download/upload metrics, ratios, per-test and per-device terms
+  - Usage: tests, devices, density, pressure proxies
+  - Context: state-level and rounded spatial-cell aggregates
+  - Encoded state indicators
+
+Critical data-quality note:
+  Target-derived columns were explicitly removed after detecting leakage.
+  Columns such as latency_per_test and latency_per_device must not be re-added.
+
+================================================================================
+INDIA MODELING RESULTS
+================================================================================
+
+Regression model:
+  File: 09_INDIA_FIRST_ANALYSIS/03_outputs/india_best_model.pkl
+  Algorithm: XGBoost
+  Test R²: 0.0810
+  RMSE: 44.1730 ms
+  MAE: 14.7069 ms
+
+Interpretation:
+  Exact latency regression on the current India Ookla-only feature set is weak.
+  The available variables do not contain enough signal to support strong
+  fine-grained latency prediction.
+
+SHAP explainability:
+  File: 09_INDIA_FIRST_ANALYSIS/04_reports/phase4_india_shap_explainability.txt
+  Main finding:
+    - The model relies most on context, throughput, and geography
+    - Top feature: download_vs_state_avg
+
+This is important because it shows the model is learning broad structural
+patterns rather than highly precise latency mechanics.
+
+================================================================================
+ALTERNATE INDIA TARGETS
+================================================================================
+
+Three-band classification:
+  File: 09_INDIA_FIRST_ANALYSIS/04_reports/phase3b_india_latency_classification.txt
+  Best result:
+    - XGBoostClassifier
+    - Accuracy: 0.5710
+    - Macro F1: 0.5642
+  Interpretation:
+    - Better for interpretation than regression, but still not strong enough
+
+Binary high-latency screening:
+  File: 09_INDIA_FIRST_ANALYSIS/04_reports/phase3c_india_high_latency_classification.txt
+  Best result:
+    - XGBoostClassifier
+    - Threshold: P90 = 61 ms
+    - Accuracy: 0.7496
+    - Balanced accuracy: 0.7124
+    - High-latency recall: 0.6655
+    - High-latency precision: 0.2420
+
+Interpretation:
+  The binary classifier is materially more useful than direct regression or
+  three-band classification. It works as a screening model for high-latency risk,
+  but it is not precise enough for low-false-alarm deployment.
+
+================================================================================
+INDIA ANOMALY DETECTION - STRONGEST PRACTICAL OUTPUT
+================================================================================
+
+Primary files:
+  09_INDIA_FIRST_ANALYSIS/03_outputs/india_test_predictions_with_anomaly_flags.csv
+  09_INDIA_FIRST_ANALYSIS/03_outputs/india_state_anomaly_summary.csv
+  09_INDIA_FIRST_ANALYSIS/03_outputs/india_priority_anomalies.csv
+  09_INDIA_FIRST_ANALYSIS/04_reports/phase5_india_anomaly_detection.txt
+
+Method:
+  1. Predict expected latency with the India XGBoost regression model
+  2. Compute residuals (actual - predicted)
+  3. Flag residual underperformance at P95 and severe residuals at P99
+  4. Combine that with the P90 high-latency classifier signal
+  5. Treat overlap as dual-signal anomalies
+
+Key India anomaly metrics:
+  Test rows evaluated: 112,506
+  Residual underperforming cases: 5,626
+  Severe residual cases: 1,126
+  Dual-signal anomalies: 3,136
+  Critical anomalies: 663
+  Mean residual: 5.6070 ms
+
+Top anomaly states by dual-signal rate:
+  1. Andaman and Nicobar  -> 24.64%
+  2. Bihar                -> 12.30%
+  3. Arunachal Pradesh    -> 10.58%
+
+Why this matters:
+  This anomaly layer is the strongest operational output of the India-first
+  workflow because it identifies where actual network behavior is worse than the
+  model would expect from throughput, usage, and spatial context.
+
+================================================================================
+KARNATAKA CASE-STUDY RESULT
+================================================================================
+
+Primary files:
+  09_INDIA_FIRST_ANALYSIS/04_reports/phase6_karnataka_case_study.txt
+  09_INDIA_FIRST_ANALYSIS/03_outputs/karnataka_priority_anomalies.csv
+
+Karnataka anomaly result:
+  Samples evaluated: 3,990
+  Dual-signal anomaly rate: 0.0281
+  Critical anomaly rate: 0.0058
+  Mean residual: 5.7647 ms
+  Dual-signal rank: 17 / 36 states
+  Critical rank: 19 / 36 states
+
+Interpretation:
+  Karnataka is a justified case-study state, but it is not one of the most
+  anomalous states in India. It shows measurable unexpected degradation, but not
+  enough to classify it as a worst-case hotspot.
+
+TRAI operator context:
+  Current Karnataka TRAI extract contains only AIRTEL.
+  Therefore, no defensible best-vs-worst operator comparison can be claimed yet.
+
+================================================================================
+FINAL DELIVERABLES TO USE
+================================================================================
+
+Use these files for the final India-first narrative:
+
+  09_INDIA_FIRST_ANALYSIS/04_reports/phase5_phase6_final_narrative.md
+  09_INDIA_FIRST_ANALYSIS/INDIA_FIRST_FINAL_HANDOFF.txt
+  09_INDIA_FIRST_ANALYSIS/04_reports/phase5_results_and_insights.md
+  09_INDIA_FIRST_ANALYSIS/04_reports/phase6_karnataka_case_study.txt
+
+Use these files for benchmark and methodology context:
+
+  PHASE5_FINAL_MODEL_REPORT.txt
+  outputs_v5/phase5_results.csv
+  outputs_v5/v5_engineering_summary.txt
+
+================================================================================
+LIMITATIONS TO STATE CLEARLY
+================================================================================
+
+1. The India regression model remains weak and should not be presented as a
+   high-accuracy latency predictor.
+
+2. The India binary high-latency classifier is useful for screening, but low
+   precision means it produces many false alarms.
+
+3. The Karnataka TRAI file currently has only one operator, so provider ranking
+   and cross-operator benchmarking remain incomplete.
+
+4. The Europe-schema model is not directly compatible with the India data and
+   should only be described as a benchmark track.
+
+================================================================================
+RECOMMENDED FINAL REPORT POSITIONING
+================================================================================
+
+1. Present India as the main domain of analysis.
+2. Present the Europe V5 workflow as a benchmark optimization pipeline.
+3. Describe exact India latency regression as limited but informative.
+4. Emphasize SHAP, high-latency screening, and anomaly detection as the stronger
+   contributions of the India-first workflow.
+5. Present Karnataka as a meaningful case-study state rather than the worst
+   network region in India.
+6. Explicitly state that richer variables such as operator, time, signal, or
+   technology would likely improve future model quality.
+
+================================================================================
+END OF SUMMARY
+================================================================================

@@ -1,0 +1,214 @@
+================================================================================
+                INDIA-FIRST ANALYSIS - FINAL HANDOFF SUMMARY
+================================================================================
+
+WORKSPACE PURPOSE:
+  This folder makes India the primary modeling and analysis domain for the FYP.
+  It uses the original India Ookla state-labelled dataset and the attached
+  Karnataka TRAI dataset without mixing them directly into the Europe-schema
+  model artifacts.
+
+================================================================================
+PRIMARY DATASETS
+================================================================================
+
+1. Ookla India with states:
+   outputs_v5/ookla_data_with_states.csv
+   - Rows: 562,527
+   - States/UTs covered: 36
+   - Karnataka rows: 20,325
+
+2. Karnataka TRAI extract:
+   outputs_v5/ade6e644-91b8-4d27-97ba-e8c42c48f278_4bc4eb37ff16e2b91e3412bf093ee6e5 (1).csv
+   - Karnataka rows: 1,767
+   - Current limitation: only one operator appears in this extract (AIRTEL)
+
+================================================================================
+PHASE-BY-PHASE STATUS
+================================================================================
+
+Phase 1 - India data understanding:
+  Report: 04_reports/phase1_india_data_understanding.txt
+  Key result:
+    - India mean latency: 39.09 ms
+    - Karnataka mean latency: 40.81 ms
+    - Karnataka has enough rows for a valid case-study workflow
+
+Phase 2 - India feature engineering:
+  Report: 04_reports/phase2_india_feature_build.txt
+  Output dataset: 03_outputs/india_model_dataset.csv
+  Final validated dataset:
+    - Rows: 562,527
+    - Columns: 80 total
+    - Features: 79
+    - Missing values: 0
+  Important note:
+    - Target-derived columns were removed to eliminate leakage
+
+Phase 3 - India regression modeling:
+  Report: 04_reports/phase3_india_model_training.txt
+  Best model artifact: 03_outputs/india_best_model.pkl
+  Best model: XGBoost
+  Best metrics:
+    - R² = 0.0810
+    - RMSE = 44.1730 ms
+    - MAE = 14.7069 ms
+  Interpretation:
+    - Exact latency regression is weak on the current Ookla-only India feature set
+
+Phase 4 - SHAP explainability:
+  Report: 04_reports/phase4_india_shap_explainability.txt
+  Outputs:
+    - 03_outputs/india_shap_global_importance.csv
+    - 03_outputs/india_shap_family_importance.csv
+    - 03_outputs/india_shap_local_explanation.csv
+  Main finding:
+    - The model relies most on context, throughput, and geography features
+    - Top feature: download_vs_state_avg
+
+Phase 3C - Binary high-latency classification:
+  Report: 04_reports/phase3c_india_high_latency_classification.txt
+  Best classifier artifact: 03_outputs/india_best_high_latency_classifier.pkl
+  Best setup:
+    - XGBoostClassifier
+    - Threshold: P90 = 61 ms
+  Best metrics:
+    - Accuracy = 0.7496
+    - Balanced accuracy = 0.7124
+    - High-latency recall = 0.6655
+    - High-latency precision = 0.2420
+  Interpretation:
+    - Works as a screening model, not as a precise detector
+
+Phase 5 - India anomaly detection:
+  Reports:
+    - 04_reports/phase5_india_anomaly_detection.txt
+    - 04_reports/phase5_results_and_insights.md
+  Main output files:
+    - 03_outputs/india_test_predictions_with_anomaly_flags.csv
+    - 03_outputs/india_state_anomaly_summary.csv
+    - 03_outputs/india_priority_anomalies.csv
+    - 03_outputs/india_anomaly_detection_results.pkl
+  Detection design:
+    - Residual underperformance = residual >= P95
+    - Severe underperformance = residual >= P99
+    - Dual-signal anomaly = regression underperformance + classifier high-risk flag
+  Key metrics:
+    - Residual underperforming count: 5,626
+    - Severe residual count: 1,126
+    - Dual-signal anomaly count: 3,136
+    - Critical anomaly count: 663
+  Main finding:
+    - Andaman and Nicobar had the highest dual-signal anomaly rate
+
+Phase 6 - Karnataka case study:
+  Report: 04_reports/phase6_karnataka_case_study.txt
+  Main output files:
+    - 03_outputs/india_state_anomaly_summary_ranked.csv
+    - 03_outputs/karnataka_all_anomaly_cases.csv
+    - 03_outputs/karnataka_priority_anomalies.csv
+  Karnataka result:
+    - Dual-signal anomaly rate = 0.0281
+    - Critical anomaly rate = 0.0058
+    - Mean residual = 5.7647 ms
+    - Dual-signal rank = 17 / 36 states
+  Interpretation:
+    - Karnataka is a meaningful case-study state, but not a worst-case anomaly hotspot
+
+Phase 7 and Phase 8 - Zone-level high-risk internet performance classification:
+  Reports:
+    - 04_reports/phase7_india_zone_risk_dataset.txt
+    - 04_reports/phase8_india_zone_risk_modeling.txt
+  Main output files:
+    - 03_outputs/india_zone_risk_dataset.csv
+    - 03_outputs/india_zone_risk_model_results.csv
+    - 03_outputs/india_best_zone_risk_model.pkl
+    - 03_outputs/india_zone_risk_predictions.csv
+  Problem framing:
+    - Identify high-risk internet performance zones in India at zone level
+    - Target derived from train-only zone P90 latency thresholds
+  Best validated setup:
+    - CatBoostClassifier
+    - Risk threshold: P75 = 71.0 ms zone P90 latency
+  Best metrics:
+    - Accuracy = 0.7556
+    - Balanced accuracy = 0.6967
+    - High-risk F1 = 0.5432
+    - High-risk precision = 0.5122
+    - High-risk recall = 0.5782
+  Interpretation:
+    - This is the strongest India-first predictive framing in the repository
+    - It is more defensible than exact India latency regression for the current data
+
+Phase 9 - Zone-risk SHAP explainability:
+  Report:
+    - 04_reports/phase9_india_zone_risk_shap_explainability.txt
+  Output files:
+    - 03_outputs/india_zone_risk_shap_global_importance.csv
+    - 03_outputs/india_zone_risk_shap_family_importance.csv
+    - 03_outputs/india_zone_risk_shap_local_explanation.csv
+  Main finding:
+    - Zone-risk classification is driven mostly by context and throughput features
+    - Top feature: state_zone_avg_devices
+
+================================================================================
+MOST IMPORTANT DELIVERABLES
+================================================================================
+
+Best India regression model:
+  03_outputs/india_best_model.pkl
+
+Best India high-latency classifier:
+  03_outputs/india_best_high_latency_classifier.pkl
+
+Best India zone-risk classifier:
+  03_outputs/india_best_zone_risk_model.pkl
+
+Best anomaly outputs:
+  03_outputs/india_state_anomaly_summary.csv
+  03_outputs/india_priority_anomalies.csv
+  03_outputs/karnataka_priority_anomalies.csv
+
+Report-ready narrative:
+  04_reports/phase5_phase6_final_narrative.md
+
+Core interpretation reports:
+  04_reports/phase3_india_model_training.txt
+  04_reports/phase4_india_shap_explainability.txt
+  04_reports/phase5_results_and_insights.md
+  04_reports/phase6_karnataka_case_study.txt
+
+================================================================================
+LIMITATIONS TO STATE CLEARLY
+================================================================================
+
+1. The India regression model remains weak (R² about 0.08), so exact latency
+   prediction should not be over-claimed.
+
+2. The binary high-latency classifier is better than regression for screening,
+   but it has low precision and will raise many false alarms.
+
+3. The zone-level high-risk classifier is the best India-first prediction task,
+  but it is a zone-risk classifier, not an exact latency predictor.
+
+4. The TRAI Karnataka file currently includes only AIRTEL, so no operator-level
+   benchmarking or provider ranking is valid yet.
+
+5. The Europe-schema model remains useful only as a benchmark pipeline and not
+   as the primary India model.
+
+================================================================================
+RECOMMENDED FINAL REPORT POSITIONING
+================================================================================
+
+1. Present India as the main domain of analysis.
+2. Present zone-level high-risk internet performance classification as the best India-first predictive task.
+3. Present direct latency regression as informative but limited.
+4. Emphasize explainability and anomaly detection as strong supporting contributions.
+5. Describe Karnataka as a justified case study rather than the worst-performing state.
+6. Explicitly note that richer raw inputs such as operator, time, signal, or
+   technology would likely improve future model quality.
+
+================================================================================
+END OF HANDOFF
+================================================================================

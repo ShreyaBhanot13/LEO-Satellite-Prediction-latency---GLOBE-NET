@@ -1,0 +1,40 @@
+PHASE 3B REPORT: INDIA LATENCY BAND CLASSIFICATION
+================================================================================
+Train rows: 450,021
+Test rows: 112,506
+Feature count: 79
+Target type: three_band_latency_classification
+Low/medium cutoff: <= 25.0000 ms
+Medium/high cutoff: > 37.0000 ms
+
+Train class distribution: {'low_latency': 155743, 'medium_latency': 145451, 'high_latency': 148827}
+Test class distribution: {'low_latency': 38819, 'medium_latency': 36335, 'high_latency': 37352}
+
+Model comparison:
+- XGBoostClassifier: accuracy=0.5710, balanced_accuracy=0.5682, macro_f1=0.5642, weighted_f1=0.5662
+- CatBoostClassifier: accuracy=0.5642, balanced_accuracy=0.5613, macro_f1=0.5566, weighted_f1=0.5587
+- RandomForestClassifier: accuracy=0.5603, balanced_accuracy=0.5580, macro_f1=0.5555, weighted_f1=0.5574
+
+Best model:
+- XGBoostClassifier
+- Accuracy: 0.5710
+- Balanced accuracy: 0.5682
+- Macro F1: 0.5642
+- Weighted F1: 0.5662
+
+Best-model classification report:
+                precision    recall  f1-score   support
+
+   low_latency     0.6103    0.6735    0.6403     38819
+medium_latency     0.4917    0.4118    0.4482     36335
+  high_latency     0.5895    0.6193    0.6040     37352
+
+      accuracy                         0.5710    112506
+     macro avg     0.5638    0.5682    0.5642    112506
+  weighted avg     0.5651    0.5710    0.5662    112506
+
+Confusion matrix:
+                low_latency  medium_latency  high_latency
+low_latency           26146            7431          5242
+medium_latency        10511           14961         10863
+high_latency           6187            8034         23131

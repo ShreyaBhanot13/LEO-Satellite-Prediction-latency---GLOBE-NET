@@ -1,0 +1,52 @@
+PHASE 9 REPORT: INDIA ZONE-RISK MODEL SHAP EXPLAINABILITY
+================================================================================
+Model explained: CatBoostClassifier
+Risk threshold: P75 (68.4000 ms zone P90 latency)
+Test zones available: 2,854
+Feature count: 88
+Validated accuracy: 0.8031
+Validated balanced accuracy: 0.7283
+Validated macro F1: 0.7298
+Validated high-risk F1: 0.5892
+Validated high-risk precision: 0.5953
+Validated high-risk recall: 0.5832
+
+Interpretation note:
+- SHAP values below rank the features that most influence high-risk zone classification.
+- For the classifier, they should be used primarily for feature ranking and local explanation rather than probability calibration.
+
+Top global SHAP features:
+- state_zone_avg_sample_count (context): mean|SHAP|=0.291289
+- zone_download_cv (other): mean|SHAP|=0.232933
+- state_zone_avg_download_kbps (context): mean|SHAP|=0.171039
+- state_zone_avg_devices (context): mean|SHAP|=0.162244
+- zone_tile_y_sq (geography): mean|SHAP|=0.134031
+- tile_x_bin (geography): mean|SHAP|=0.133930
+- zone_upload_cv (other): mean|SHAP|=0.130102
+- zone_tile_x_sq (geography): mean|SHAP|=0.124987
+- state_Bihar (state): mean|SHAP|=0.120114
+- tile_y_bin (geography): mean|SHAP|=0.112399
+
+Top feature families:
+- context: total mean|SHAP|=1.064380
+- other: total mean|SHAP|=0.661493
+- geography: total mean|SHAP|=0.579183
+- throughput: total mean|SHAP|=0.497029
+- usage: total mean|SHAP|=0.383062
+
+Representative high-risk local explanation:
+- Sample index: 2002
+- State: Chhattisgarh
+- Tile bin: (82.9000, 22.0000)
+- Predicted high-risk probability: 0.9869
+Top local contributors:
+- state_zone_avg_sample_count=24.702205882352946: SHAP=1.202257
+- state_Chhattisgarh=1.0: SHAP=0.521017
+- state_zone_avg_devices=1.606265288121542: SHAP=0.383652
+- zone_download_cv=1.2810995953170417: SHAP=0.353990
+- zone_tile_x_sq=6872.410000000001: SHAP=0.313669
+- tile_x_bin=82.9: SHAP=0.300909
+- state_zone_avg_download_kbps=129348.59282920894: SHAP=0.263119
+- zone_tile_y_sq=484.0: SHAP=0.178403
+- zone_std_download_kbps=226341.2464597629: SHAP=0.126862
+- zone_upload_cv=1.2729906047814314: SHAP=0.124051

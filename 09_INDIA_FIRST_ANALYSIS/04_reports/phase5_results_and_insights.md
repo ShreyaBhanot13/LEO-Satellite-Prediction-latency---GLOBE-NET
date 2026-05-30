@@ -1,0 +1,9 @@
+# Phase 5 Results and Insights
+
+The India anomaly-detection phase combined two independent signals: residual underperformance from the XGBoost regression model and high-latency risk from the XGBoost P90 classifier. A sample was treated as an underperformance anomaly when its residual exceeded the 95th percentile, and as a critical anomaly when the residual exceeded the 99th percentile while the classifier also flagged it as high risk.
+
+This produced 5,626 residual underperformance cases, 1,126 severe residual cases, 3,136 dual-signal anomalies, and 663 critical anomalies across the 112,506-row India test split. The mean residual was 5.6070 ms, indicating that actual latency remained systematically worse than the model expectation even after the best available India feature engineering pipeline.
+
+At the state level, the strongest anomaly concentrations were not uniformly the same as the highest-latency states. Andaman and Nicobar showed the highest dual-signal anomaly rate at 24.64%, followed by Bihar at 12.30% and Arunachal Pradesh at 10.58%. This matters because the anomaly detector is not only identifying chronically slow regions, but also regions where the observed behavior is worse than the model would normally expect from their available throughput, usage, and spatial context.
+
+These findings support the project argument that explainable ML for network-performance analysis should not rely only on average-latency ranking. Residual-based anomaly detection adds a second analytical layer that highlights unexpected degradation, which is more useful for operational monitoring and targeted intervention than raw latency alone.

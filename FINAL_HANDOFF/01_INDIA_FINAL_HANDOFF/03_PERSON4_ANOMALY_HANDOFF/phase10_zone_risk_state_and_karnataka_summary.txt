@@ -1,0 +1,38 @@
+PHASE 10 REPORT: STATE-WISE AND KARNATAKA ZONE-RISK SUMMARY
+================================================================================
+Final model: CatBoostClassifier
+Risk threshold: P75 (68.4000 ms zone P90 latency)
+Class labels: normal_zone, high_risk_zone
+
+Top states by predicted high-risk zone rate:
+- Andaman and Nicobar: predicted_rate=1.0000, actual_rate=1.0000, probability_mean=0.7122, zones=1
+- Chhattisgarh: predicted_rate=1.0000, actual_rate=0.9333, probability_mean=0.9580, zones=45
+- Goa: predicted_rate=1.0000, actual_rate=0.5714, probability_mean=0.7488, zones=7
+- Ladakh: predicted_rate=1.0000, actual_rate=0.5000, probability_mean=0.6697, zones=2
+- Bihar: predicted_rate=0.9824, actual_rate=0.8059, probability_mean=0.8733, zones=170
+- Madhya Pradesh: predicted_rate=0.9000, actual_rate=0.5750, probability_mean=0.7283, zones=120
+- Dadra and Nagar Haveli and Daman and Diu: predicted_rate=0.8333, actual_rate=0.5000, probability_mean=0.6282, zones=6
+- Jharkhand: predicted_rate=0.5652, actual_rate=0.4130, probability_mean=0.5189, zones=46
+- Sikkim: predicted_rate=0.5294, actual_rate=0.1176, probability_mean=0.4459, zones=17
+- Maharashtra: predicted_rate=0.4308, actual_rate=0.2974, probability_mean=0.4694, zones=195
+
+Karnataka summary:
+- Zones evaluated: 86
+- Predicted high-risk zones: 22
+- Actual high-risk zones: 24
+- True positives: 12
+- False positives: 10
+- False negatives: 12
+- Predicted high-risk rate: 0.2558
+- Actual high-risk rate: 0.2791
+- Mean zone P90 latency: 65.3163 ms
+- Mean high-risk probability: 0.3471
+- Karnataka precision: 0.5455
+- Karnataka recall: 0.5000
+- Karnataka high-risk F1: 0.5217
+
+Output files:
+- 03_outputs/india_zone_risk_state_summary.csv
+- 03_outputs/india_zone_risk_predictions_detailed.csv
+- 03_outputs/karnataka_zone_risk_all_test_zones.csv
+- 03_outputs/karnataka_top_high_risk_zones.csv

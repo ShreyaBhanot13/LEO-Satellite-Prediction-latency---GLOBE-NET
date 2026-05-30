@@ -1,0 +1,44 @@
+PHASE 4 REPORT: INDIA MODEL SHAP EXPLAINABILITY
+================================================================================
+Model explained: XGBoost
+Test rows available: 112,506
+Feature count: 79
+Validated test R2: 0.0810
+Validated test RMSE: 44.1730 ms
+Validated test MAE: 14.7069 ms
+
+Interpretation note:
+- SHAP values below explain the model output in the transformed prediction space used during training.
+- They are still valid for ranking which features the model relies on most.
+
+Top global SHAP features:
+- download_vs_state_avg (context): mean|SHAP|=0.090048
+- upload_per_test (throughput): mean|SHAP|=0.037617
+- cell_sample_count (context): mean|SHAP|=0.035041
+- tile_x (geography): mean|SHAP|=0.035040
+- throughput_sum_kbps (throughput): mean|SHAP|=0.032672
+- tile_y (geography): mean|SHAP|=0.026805
+- tile_xy_interaction (geography): mean|SHAP|=0.024834
+- download_per_test (throughput): mean|SHAP|=0.023183
+- cell_avg_download_kbps (context): mean|SHAP|=0.020593
+- state_avg_download_kbps (context): mean|SHAP|=0.020459
+
+Top feature families:
+- context: total mean|SHAP|=0.258292
+- throughput: total mean|SHAP|=0.128748
+- geography: total mean|SHAP|=0.092810
+- state: total mean|SHAP|=0.045918
+- usage: total mean|SHAP|=0.015259
+
+Representative local explanation sample index: 29700
+Top local contributors:
+- download_vs_state_avg=0.0001931731650684: SHAP=0.315907
+- download_vs_cell_avg=0.0006389893014934: SHAP=0.166227
+- tile_y=31.996400000000005: SHAP=0.119929
+- cell_sample_count=10.0: SHAP=0.092322
+- download_per_test=7.0: SHAP=0.085332
+- state_avg_upload_kbps=11077.717340965266: SHAP=0.078829
+- cell_avg_upload_kbps=4705.6: SHAP=0.043777
+- tile_xy_interaction=2350.5451339200004: SHAP=-0.040989
+- upload_per_test=5012.0: SHAP=-0.039435
+- state_avg_download_kbps=36236.91726291141: SHAP=-0.034217

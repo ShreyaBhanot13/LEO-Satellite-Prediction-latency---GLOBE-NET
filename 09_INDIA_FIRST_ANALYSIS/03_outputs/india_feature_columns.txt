@@ -1,0 +1,79 @@
+tile_x
+tile_y
+tile_x_sq
+tile_y_sq
+tile_xy_interaction
+avg_d_kbps
+avg_u_kbps
+throughput_sum_kbps
+throughput_gap_kbps
+tests
+devices
+tests_per_device
+devices_per_test
+download_upload_ratio
+download_per_test
+upload_per_test
+download_per_device
+upload_per_device
+log_download_kbps
+log_upload_kbps
+log_tests
+log_devices
+tile_density_proxy
+log_tile_density_proxy
+usage_pressure
+log_usage_pressure
+state_avg_download_kbps
+state_avg_upload_kbps
+state_avg_tests
+state_avg_devices
+cell_sample_count
+cell_avg_download_kbps
+cell_avg_upload_kbps
+cell_avg_tests
+cell_avg_devices
+download_vs_state_avg
+upload_vs_state_avg
+tests_vs_state_avg
+devices_vs_state_avg
+download_vs_cell_avg
+upload_vs_cell_avg
+tests_vs_cell_avg
+devices_vs_cell_avg
+state_Andaman and Nicobar
+state_Andhra Pradesh
+state_Arunachal Pradesh
+state_Assam
+state_Bihar
+state_Chandigarh
+state_Chhattisgarh
+state_Dadra and Nagar Haveli and Daman and Diu
+state_Delhi
+state_Goa
+state_Gujarat
+state_Haryana
+state_Himachal Pradesh
+state_Jammu and Kashmir
+state_Jharkhand
+state_Karnataka
+state_Kerala
+state_Ladakh
+state_Lakshadweep
+state_Madhya Pradesh
+state_Maharashtra
+state_Manipur
+state_Meghalaya
+state_Mizoram
+state_Nagaland
+state_Odisha
+state_Puducherry
+state_Punjab
+state_Rajasthan
+state_Sikkim
+state_Tamil Nadu
+state_Telangana
+state_Tripura
+state_Uttar Pradesh
+state_Uttarakhand
+state_West Bengal

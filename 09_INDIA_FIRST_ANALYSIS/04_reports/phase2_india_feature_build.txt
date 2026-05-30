@@ -1,0 +1,18 @@
+PHASE 2 REPORT: INDIA MODEL DATASET BUILD
+================================================================================
+Rows: 562,527
+Columns: 80
+Target column: avg_lat_ms
+Feature count: 79
+
+Feature blocks:
+- Geographic: tile_x, tile_y, polynomial terms, tile interactions
+- Throughput: avg_d_kbps, avg_u_kbps, sums/gaps, per-test and per-device ratios, log transforms
+- Usage: tests, devices, cross-ratios, tile_density_proxy, usage_pressure
+- Context: state-level and rounded spatial-cell throughput/load aggregates with relative-position ratios
+- Latency-adjacent structure: throughput and usage proxies only (no target-derived columns)
+- Encoded categories: state_*
+
+Data quality:
+- Missing values remaining: 0
+- Unique states encoded: 36

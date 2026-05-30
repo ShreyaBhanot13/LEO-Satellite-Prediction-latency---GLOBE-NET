@@ -1,0 +1,17 @@
+PHASE 3 REPORT: INDIA MODEL TRAINING
+================================================================================
+Train rows: 450,021
+Test rows: 112,506
+Feature count: 79
+Target: avg_lat_ms
+
+Model comparison:
+- XGBoost: R2=0.0810, RMSE=44.1730 ms, MAE=14.7069 ms
+- CatBoost: R2=0.0750, RMSE=44.3178 ms, MAE=14.7704 ms
+- RandomForest: R2=0.0706, RMSE=44.4234 ms, MAE=14.9491 ms
+
+Best model:
+- XGBoost
+- R2: 0.0810
+- RMSE: 44.1730 ms
+- MAE: 14.7069 ms

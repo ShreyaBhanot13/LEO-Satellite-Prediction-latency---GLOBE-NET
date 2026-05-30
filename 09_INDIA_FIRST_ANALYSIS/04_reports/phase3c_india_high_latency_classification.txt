@@ -1,0 +1,44 @@
+PHASE 3C REPORT: INDIA HIGH-LATENCY BINARY CLASSIFICATION
+================================================================================
+Train rows: 450,021
+Test rows: 112,506
+Feature count: 79
+Target type: binary_high_latency_classification
+Selected threshold: P90 (61.0000 ms)
+Train positive rate: 0.1032
+Test positive rate: 0.1035
+
+Model comparison across thresholds:
+- P90 threshold (61.0000 ms), test positive rate=0.1035
+  XGBoostClassifier: accuracy=0.7496, balanced_accuracy=0.7124, macro_f1=0.5998, high_latency_f1=0.3549, precision=0.2420, recall=0.6655
+  RandomForestClassifier: accuracy=0.8607, balanced_accuracy=0.6428, macro_f1=0.6377, high_latency_f1=0.3535, precision=0.3400, recall=0.3681
+  CatBoostClassifier: accuracy=0.7287, balanced_accuracy=0.7121, macro_f1=0.5871, high_latency_f1=0.3452, precision=0.2301, recall=0.6912
+- P95 threshold (82.0000 ms), test positive rate=0.0512
+  RandomForestClassifier: accuracy=0.9173, balanced_accuracy=0.5952, macro_f1=0.5912, high_latency_f1=0.2262, precision=0.2169, recall=0.2363
+  XGBoostClassifier: accuracy=0.7886, balanced_accuracy=0.6957, macro_f1=0.5502, high_latency_f1=0.2227, precision=0.1371, recall=0.5922
+  CatBoostClassifier: accuracy=0.7448, balanced_accuracy=0.6983, macro_f1=0.5269, high_latency_f1=0.2058, precision=0.1224, recall=0.6464
+
+Best model:
+- XGBoostClassifier
+- Threshold: P90
+- Accuracy: 0.7496
+- Balanced accuracy: 0.7124
+- Macro F1: 0.5998
+- High-latency F1: 0.3549
+- High-latency precision: 0.2420
+- High-latency recall: 0.6655
+
+Best-model classification report:
+                precision    recall  f1-score   support
+
+normal_latency     0.9516    0.7593    0.8447    100864
+  high_latency     0.2420    0.6655    0.3549     11642
+
+      accuracy                         0.7496    112506
+     macro avg     0.5968    0.7124    0.5998    112506
+  weighted avg     0.8782    0.7496    0.7940    112506
+
+Confusion matrix:
+                normal_latency  high_latency
+normal_latency           76591         24273
+high_latency              3894          7748

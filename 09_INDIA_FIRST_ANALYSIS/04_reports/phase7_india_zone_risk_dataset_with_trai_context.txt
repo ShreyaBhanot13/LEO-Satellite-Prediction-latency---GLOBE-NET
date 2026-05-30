@@ -1,0 +1,28 @@
+PHASE 7 REPORT: INDIA ZONE-RISK DATASET BUILD
+================================================================================
+Raw zone rows before support filtering: 29,625
+Zone rows: 14,266
+Columns: 161
+Minimum samples per zone: 10
+Dropped low-support zones: 15,359 (51.8447%)
+Unique states encoded: 36
+Mean zone P90 latency: 60.2336 ms
+Median zone P90 latency: 53.0000 ms
+
+Support profile after filtering:
+- Min zone samples: 10
+- P10 zone samples: 11.0
+- P25 zone samples: 15.0
+- Median zone samples: 23.0
+- P75 zone samples: 40.0
+- P90 zone samples: 69.0
+- Max zone samples: 402
+- Share of zones with <= 12 samples: 0.1606
+- Share of zones with <= 20 samples: 0.4409
+
+Design note:
+- This dataset is zone-level, not raw-sample level.
+- The classification target is derived later from zone P90 latency using train-only thresholds.
+- Direct latency fields remain in the file as label sources and metadata, but they are excluded from model features.
+- Low-support zones are filtered more aggressively to reduce noisy labels before modeling.
+- TRAI state context enabled: True

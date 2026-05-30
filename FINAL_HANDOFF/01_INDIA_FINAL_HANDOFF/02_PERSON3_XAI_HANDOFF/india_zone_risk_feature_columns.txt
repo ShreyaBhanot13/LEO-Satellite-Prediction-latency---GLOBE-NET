@@ -1,0 +1,88 @@
+tile_x_bin
+tile_y_bin
+zone_sample_count
+zone_mean_download_kbps
+zone_median_download_kbps
+zone_std_download_kbps
+zone_mean_upload_kbps
+zone_median_upload_kbps
+zone_std_upload_kbps
+zone_mean_tests
+zone_median_tests
+zone_std_tests
+zone_mean_devices
+zone_median_devices
+zone_std_devices
+zone_mean_tests_per_device
+zone_mean_devices_per_test
+zone_mean_download_upload_ratio
+zone_tile_x_sq
+zone_tile_y_sq
+zone_tile_xy_interaction
+zone_throughput_sum_kbps
+zone_throughput_gap_kbps
+zone_density_proxy
+zone_usage_pressure
+zone_download_cv
+zone_upload_cv
+zone_tests_cv
+zone_devices_cv
+zone_download_median_gap_kbps
+zone_upload_median_gap_kbps
+zone_tests_median_gap
+zone_devices_median_gap
+log_zone_mean_download_kbps
+log_zone_mean_upload_kbps
+log_zone_mean_tests
+log_zone_mean_devices
+log_zone_density_proxy
+log_zone_usage_pressure
+log_zone_sample_count
+state_zone_avg_download_kbps
+state_zone_avg_upload_kbps
+state_zone_avg_tests
+state_zone_avg_devices
+state_zone_avg_density
+state_zone_avg_sample_count
+zone_download_vs_state_avg
+zone_upload_vs_state_avg
+zone_tests_vs_state_avg
+zone_devices_vs_state_avg
+zone_density_vs_state_avg
+zone_sample_count_vs_state_avg
+state_Andaman and Nicobar
+state_Andhra Pradesh
+state_Arunachal Pradesh
+state_Assam
+state_Bihar
+state_Chandigarh
+state_Chhattisgarh
+state_Dadra and Nagar Haveli and Daman and Diu
+state_Delhi
+state_Goa
+state_Gujarat
+state_Haryana
+state_Himachal Pradesh
+state_Jammu and Kashmir
+state_Jharkhand
+state_Karnataka
+state_Kerala
+state_Ladakh
+state_Lakshadweep
+state_Madhya Pradesh
+state_Maharashtra
+state_Manipur
+state_Meghalaya
+state_Mizoram
+state_Nagaland
+state_Odisha
+state_Puducherry
+state_Punjab
+state_Rajasthan
+state_Sikkim
+state_Tamil Nadu
+state_Telangana
+state_Tripura
+state_Uttar Pradesh
+state_Uttarakhand
+state_West Bengal

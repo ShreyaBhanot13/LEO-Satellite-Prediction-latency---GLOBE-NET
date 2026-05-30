@@ -1,0 +1,52 @@
+PHASE 8 REPORT: INDIA HIGH-RISK INTERNET PERFORMANCE ZONE CLASSIFICATION
+================================================================================
+Train zones: 11,412
+Test zones: 2,854
+Feature count: 88
+Target type: zone_level_high_risk_classification
+Selected risk quantile: P75
+Selected risk cutoff: 68.4000 ms (zone P90 latency)
+Train positive rate: 0.2510
+Test positive rate: 0.2421
+
+Model comparison across risk thresholds:
+- P75 risk threshold (68.4000 ms), test positive rate=0.2421
+  CatBoostClassifier: accuracy=0.8031, balanced_accuracy=0.7283, macro_f1=0.7298, high_risk_f1=0.5892, precision=0.5953, recall=0.5832
+  XGBoostClassifier: accuracy=0.8108, balanced_accuracy=0.7166, macro_f1=0.7278, high_risk_f1=0.5775, precision=0.6286, recall=0.5340
+  ExtraTreesClassifier: accuracy=0.8178, balanced_accuracy=0.7074, macro_f1=0.7260, high_risk_f1=0.5674, precision=0.6673, recall=0.4935
+  RandomForestClassifier: accuracy=0.8231, balanced_accuracy=0.6961, macro_f1=0.7208, high_risk_f1=0.5519, precision=0.7133, recall=0.4501
+- P80 risk threshold (73.4000 ms), test positive rate=0.1934
+  ExtraTreesClassifier: accuracy=0.8560, balanced_accuracy=0.7062, macro_f1=0.7339, high_risk_f1=0.5537, precision=0.6911, recall=0.4620
+  XGBoostClassifier: accuracy=0.8427, balanced_accuracy=0.7076, macro_f1=0.7250, high_risk_f1=0.5451, precision=0.6184, recall=0.4873
+  CatBoostClassifier: accuracy=0.8206, balanced_accuracy=0.7173, macro_f1=0.7152, high_risk_f1=0.5420, precision=0.5353, recall=0.5489
+  RandomForestClassifier: accuracy=0.8549, balanced_accuracy=0.6828, macro_f1=0.7161, high_risk_f1=0.5175, precision=0.7255, recall=0.4022
+- P85 risk threshold (79.0000 ms), test positive rate=0.1521
+  CatBoostClassifier: accuracy=0.8560, balanced_accuracy=0.7052, macro_f1=0.7117, high_risk_f1=0.5078, precision=0.5287, recall=0.4885
+  ExtraTreesClassifier: accuracy=0.8697, balanced_accuracy=0.6792, macro_f1=0.7058, high_risk_f1=0.4862, precision=0.6069, recall=0.4055
+  XGBoostClassifier: accuracy=0.8619, balanced_accuracy=0.6747, macro_f1=0.6962, high_risk_f1=0.4718, precision=0.5641, recall=0.4055
+  RandomForestClassifier: accuracy=0.8693, balanced_accuracy=0.6516, macro_f1=0.6834, high_risk_f1=0.4408, precision=0.6309, recall=0.3387
+
+Best model:
+- CatBoostClassifier
+- Risk threshold: P75
+- Accuracy: 0.8031
+- Balanced accuracy: 0.7283
+- Macro F1: 0.7298
+- High-risk F1: 0.5892
+- High-risk precision: 0.5953
+- High-risk recall: 0.5832
+
+Best-model classification report:
+                precision    recall  f1-score   support
+
+   normal_zone     0.8677    0.8733    0.8705      2163
+high_risk_zone     0.5953    0.5832    0.5892       691
+
+      accuracy                         0.8031      2854
+     macro avg     0.7315    0.7283    0.7298      2854
+  weighted avg     0.8017    0.8031    0.8024      2854
+
+Confusion matrix:
+                normal_zone  high_risk_zone
+normal_zone            1889             274
+high_risk_zone          288             403

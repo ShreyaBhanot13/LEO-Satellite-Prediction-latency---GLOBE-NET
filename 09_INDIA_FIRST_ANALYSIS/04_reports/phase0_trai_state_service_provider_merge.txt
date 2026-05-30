@@ -1,0 +1,41 @@
+PHASE 0 REPORT: TRAI STATE SERVICE PROVIDER MERGE
+================================================================================
+Input directory: C:\Users\250019004\FY_ML\State_service_provider
+CSV files merged: 89
+Master rows: 289,564
+Summary rows: 178
+Years present: [2025]
+Months present: [2, 3]
+Operators present: ['AIRTEL', 'CELLONE', 'JIO', 'Vi India']
+LSAs present: 23
+Mapped state keys: 18
+Unmapped rows: 1,495
+
+Rows by operator:
+- JIO: 161,507
+- AIRTEL: 87,373
+- CELLONE: 24,549
+- Vi India: 16,135
+
+Rows by LSA merge type:
+- state: 262,144
+- split_circle: 15,838
+- metro_circle: 10,087
+- multi_state_circle: 1,495
+
+Top 15 LSAs by row count:
+- Haryana: 110,073
+- West Bengal: 24,399
+- Maharashtra: 19,295
+- Bihar: 18,365
+- Kerala: 11,532
+- UP East: 11,045
+- Rajasthan: 10,823
+- Andhra Pradesh: 10,643
+- Tamil Nadu: 8,923
+- Karnataka: 8,280
+- Madhya Pradesh: 7,866
+- Punjab: 6,869
+- Delhi: 6,710
+- Gujarat: 6,003
+- Assam: 5,325

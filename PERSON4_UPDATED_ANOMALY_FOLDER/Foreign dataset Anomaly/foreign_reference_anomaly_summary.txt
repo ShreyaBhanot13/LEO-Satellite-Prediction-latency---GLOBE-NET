@@ -1,0 +1,43 @@
+
+PERSON 4 SUMMARY - FOREIGN DATASET ANOMALY ANALYSIS (REFERENCE ONLY)
+
+Purpose:
+This folder is a legacy foreign-dataset benchmark used for comparison and background analysis.
+It is not the final anomaly detection module for the India-first project.
+
+Target variable:
+ping_avg
+
+Residual formula:
+residual = actual ping_avg - predicted ping_avg
+
+Interpretation:
+Positive residual means actual latency is higher than predicted.
+Large positive residual indicates worse-than-expected network performance in the foreign benchmark dataset.
+
+Total test samples:
+23392
+
+Reference high-risk anomalies:
+842
+
+High-risk percentage:
+3.60 %
+
+Top parameters affecting anomalies:
+     feature  importance
+ ping_stddev    0.164409
+  ping_worst    0.132774
+   ping_best    0.097053
+    download    0.071357
+       barom    0.070124
+download_std    0.067785
+        temp    0.067519
+      upload    0.066165
+  upload_std    0.066030
+        hour    0.051094
+
+Conclusion:
+This analysis shows how anomaly detection behaved on the earlier foreign benchmark dataset.
+It is useful as a supporting reference for model behavior and feature impact, but it should be presented separately from the official India anomaly workflow.
+The final project anomaly story must rely on the India dual-signal method, not this foreign benchmark summary.

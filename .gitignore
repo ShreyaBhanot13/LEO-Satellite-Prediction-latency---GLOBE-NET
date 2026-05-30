@@ -1,0 +1,116 @@
+# .gitignore for FY_ML Project
+# Version Control Exclusions
+
+## Data Files (Large CSVs & Datasets)
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.feather
+data/
+01_Data/raw/
+01_Data/processed/
+!*.py
+!requirements.txt
+
+## Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+## Python Environment
+.venv/
+venv/
+env/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+## IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+## Model Files (Large Binary Objects)
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.keras
+*.pt
+*.pth
+04_Models/trained/
+04_Models/backups/
+
+## Output & Temporary Files
+*.tmp
+*.bak
+*.cache
+.cache/
+*.log
+outputs/
+temp/
+
+## System Files
+desktop.ini
+.directory
+
+## Archives
+*.zip
+*.tar
+*.gz
+*.rar
+
+## Geospatial Boundaries (Optional - Include in Git LFS if needed)
+# 01_Data/boundaries/  # Uncomment if using Git LFS
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+
+## Large Visualization Files
+visualizations/
+05_Results/visualizations/
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+## Specific Project Exclusions
+COMPLETE_MODEL_COMPARISON.csv
+DATASET_OVERVIEW.txt
+ML_MODEL_DEVELOPMENT_REPORT.txt
+PHASE5_FINAL_MODEL_REPORT.txt
+TEAM_HANDOFF_GUIDE.txt
+model_backups/
+archive/
+outputs_v2/
+outputs_v3/
+outputs_v5/
+outputs_v6_final/
+scripts/
+scripts_v2/
+scripts_v3/
+scripts_v6_final/
+visualizations/
+
+## Keep These (Git-tracked essentials)
+!.gitignore
+!README.md
+!ORGANIZATION_GUIDE.md
+!requirements.txt
+!setup.py
+!02_Notebooks/
+!03_Scripts/
+!06_Documentation/

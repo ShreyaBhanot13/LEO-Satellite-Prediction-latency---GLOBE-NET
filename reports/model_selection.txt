@@ -1,0 +1,50 @@
+═══════════════════════════════════════════════════════════════════════════════
+                           MODEL SELECTION REPORT
+═══════════════════════════════════════════════════════════════════════════════
+
+MODELS EVALUATED
+================
+1. RandomForest Regressor
+2. Support Vector Regression (SVR)
+3. XGBoost Regressor
+
+TEST SET PERFORMANCE COMPARISON
+================================
+Model           Test_RMSE    Test_MAE    Test_R2
+──────────────────────────────────────────────
+RandomForest       0.4467     0.3208    0.7931
+SVR                0.4486     0.3249    0.7912
+XGBoost            0.4427     0.3132    0.7967 ← SELECTED
+
+═══════════════════════════════════════════════════════════════════════════════
+🏆 BEST MODEL SELECTED: XGBoost
+═══════════════════════════════════════════════════════════════════════════════
+
+Selection Criteria: Highest R² Score (Coefficient of Determination)
+
+Performance Metrics:
+  • R² Score: 0.7967
+    → Model explains 79.67% of latency variance
+
+  • RMSE (Root Mean Squared Error): 0.4427 ms
+    → Average prediction error magnitude
+
+  • MAE (Mean Absolute Error): 0.3132 ms
+    → Typical absolute deviation from actual values
+
+REASONING
+=========
+XGBoost was selected because:
+1. Achieved the highest R² score (0.7967) among all models
+2. Shows the best generalization to unseen test data
+3. Demonstrates optimal balance between bias and variance
+4. Most reliable for production use
+
+NEXT STEPS
+==========
+1. Use best_model_final.pkl for making predictions
+2. Apply SHAP analysis for model interpretability (Person 3)
+3. Monitor model performance on new data
+4. Consider ensemble methods if needed for further improvement
+
+═══════════════════════════════════════════════════════════════════════════════

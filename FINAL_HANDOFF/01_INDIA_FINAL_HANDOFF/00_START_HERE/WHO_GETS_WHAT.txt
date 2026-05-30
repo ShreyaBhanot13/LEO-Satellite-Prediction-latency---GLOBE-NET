@@ -1,0 +1,38 @@
+WHO GETS WHAT
+========================================
+
+PERSON 1 - DATA / FEATURE ENGINEERING REFERENCE
+Use:
+- 01_INDIA_FINAL_MODEL_BASELINE/DATASETS
+- 01_INDIA_FINAL_MODEL_BASELINE/SCRIPTS/07_build_zone_risk_dataset.py
+- 01_INDIA_FINAL_MODEL_BASELINE/REPORTS/phase7_india_zone_risk_dataset.txt
+
+PERSON 2 - MODELING (ALREADY COMPLETED)
+Reference files:
+- 01_INDIA_FINAL_MODEL_BASELINE/MODELS
+- 01_INDIA_FINAL_MODEL_BASELINE/RESULTS
+- 01_INDIA_FINAL_MODEL_BASELINE/REPORTS/phase8_india_zone_risk_modeling.txt
+- 01_INDIA_FINAL_MODEL_BASELINE/SCRIPTS/08_train_zone_risk_models.py
+- 01_INDIA_FINAL_MODEL_BASELINE/SCRIPTS/08a_tune_catboost_zone_risk.py
+
+PERSON 3 - SHAP / XAI
+Use the entire folder:
+- 02_PERSON3_XAI_HANDOFF
+
+PERSON 4 - ANOMALY DETECTION / RISK ANALYSIS
+Use the entire folder:
+- 03_PERSON4_ANOMALY_HANDOFF
+
+OPTIONAL EXTRA CONTEXT ONLY
+Use only if needed:
+- 04_INDIA_OPERATOR_CONTEXT_OPTIONAL
+
+LEGACY GERMANY / NETHERLANDS REFERENCE
+Use only if someone needs the earlier Europe/global benchmark datasets or models:
+- 05_FOREIGN_GERMANY_NETHERLANDS_REFERENCE
+
+SHARED TEAM WORK LATER
+- UI / dashboard
+- final presentation slides
+- viva demo flow
+These are intentionally not separated into an individual handoff folder yet.

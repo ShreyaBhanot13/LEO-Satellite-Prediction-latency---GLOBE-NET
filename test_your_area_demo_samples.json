@@ -1,0 +1,137 @@
+[
+  {
+    "state": "Karnataka",
+    "scenario": "Keep it similar",
+    "example_area": "Typical example area",
+    "connection_strength": "Typical",
+    "traffic_load": "Typical",
+    "crowding": "Typical",
+    "stability": "Typical"
+  },
+  {
+    "state": "Karnataka",
+    "scenario": "Rush-hour stress",
+    "example_area": "Higher-risk example area",
+    "connection_strength": "Weak",
+    "traffic_load": "Very busy",
+    "crowding": "Crowded",
+    "stability": "Unstable"
+  },
+  {
+    "state": "Maharashtra",
+    "scenario": "Network upgrade",
+    "example_area": "Better-performing example area",
+    "connection_strength": "Very good",
+    "traffic_load": "Light",
+    "crowding": "Sparse",
+    "stability": "Very stable"
+  },
+  {
+    "state": "Tamil Nadu",
+    "scenario": "Sudden demand spike",
+    "example_area": "Typical example area",
+    "connection_strength": "Good",
+    "traffic_load": "Very busy",
+    "crowding": "Very crowded",
+    "stability": "Typical"
+  },
+  {
+    "state": "Uttar Pradesh",
+    "scenario": "Keep it similar",
+    "example_area": "Higher-risk example area",
+    "connection_strength": "Very weak",
+    "traffic_load": "Very light",
+    "crowding": "Very sparse",
+    "stability": "Very unstable"
+  },
+  {
+    "state": "West Bengal",
+    "scenario": "Keep it similar",
+    "example_area": "Typical example area",
+    "connection_strength": "Typical",
+    "traffic_load": "Typical",
+    "crowding": "Typical",
+    "stability": "Typical"
+  },
+  {
+    "state": "West Bengal",
+    "scenario": "Rush-hour stress",
+    "example_area": "Higher-risk example area",
+    "connection_strength": "Weak",
+    "traffic_load": "Busy",
+    "crowding": "Crowded",
+    "stability": "Unstable"
+  },
+  {
+    "state": "Delhi",
+    "scenario": "Network upgrade",
+    "example_area": "Better-performing example area",
+    "connection_strength": "Very good",
+    "traffic_load": "Light",
+    "crowding": "Sparse",
+    "stability": "Very stable"
+  },
+  {
+    "state": "Delhi",
+    "scenario": "Sudden demand spike",
+    "example_area": "Typical example area",
+    "connection_strength": "Good",
+    "traffic_load": "Very busy",
+    "crowding": "Very crowded",
+    "stability": "Typical"
+  },
+  {
+    "state": "Kerala",
+    "scenario": "Keep it similar",
+    "example_area": "Better-performing example area",
+    "connection_strength": "Good",
+    "traffic_load": "Typical",
+    "crowding": "Typical",
+    "stability": "Stable"
+  },
+  {
+    "state": "Kerala",
+    "scenario": "Rush-hour stress",
+    "example_area": "Higher-risk example area",
+    "connection_strength": "Weak",
+    "traffic_load": "Busy",
+    "crowding": "Crowded",
+    "stability": "Unstable"
+  },
+  {
+    "state": "Gujarat",
+    "scenario": "Network upgrade",
+    "example_area": "Better-performing example area",
+    "connection_strength": "Very good",
+    "traffic_load": "Light",
+    "crowding": "Sparse",
+    "stability": "Very stable"
+  },
+  {
+    "state": "Gujarat",
+    "scenario": "Sudden demand spike",
+    "example_area": "Typical example area",
+    "connection_strength": "Typical",
+    "traffic_load": "Very busy",
+    "crowding": "Very crowded",
+    "stability": "Typical"
+  },
+  {
+    "state": "Rajasthan",
+    "scenario": "Keep it similar",
+    "example_area": "Typical example area",
+    "connection_strength": "Typical",
+    "traffic_load": "Typical",
+    "crowding": "Typical",
+    "stability": "Typical"
+  },
+  {
+    "state": "Rajasthan",
+    "scenario": "Rush-hour stress",
+    "example_area": "Higher-risk example area",
+    "connection_strength": "Very weak",
+    "traffic_load": "Very busy",
+    "crowding": "Very crowded",
+    "stability": "Very unstable"
+  }
+]
