@@ -2,8 +2,8 @@
 # FY_ML Project: Mobile Network Latency Analysis - India
 
 # Data Processing & Manipulation
-pandas==3.0.1
-numpy==2.4.2
+pandas
+numpy
 pyarrow==14.0.2
 
 # Geospatial Analysis
